@@ -195,9 +195,10 @@ class ApproximateQAgent(PacmanQAgent):
         "*** YOUR CODE HERE ***"
 
         q0 = self.getQValue(state, action)
-        qn = self.getValue(nextState)
+        #return max value (Qmax)
+        qmax = self.getValue(nextState)
 
-        max_reward = (reward + self.discount * qn)
+        max_reward = (reward + self.discount * qmax)
         correction = max_reward - q0
 
         features = self.featExtractor.getFeatures(state, action)
